@@ -23,15 +23,18 @@
 <body>
 
 <div class="gallery">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 1">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 2">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 3">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 4">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 5">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 6">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 7">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 8">
-    <img src="https://via.placeholder.com/250" alt="Placeholder Image 9">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+
+
 </div>
 
 </body>

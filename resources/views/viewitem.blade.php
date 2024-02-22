@@ -16,7 +16,7 @@ $id=$post->id;
   <a target="_blank" href="{{ URL('source/'.$id.'.jpg') }}">
   
 
-    <img src="{{ URL('source/'.$id.'.jpg') }}" alt="Northern Lights" width="600" height="400">
+    <img src="{{ URL('source/'.$id.'.jpg') }}" alt="Northern Lights" >
   </a>
   <div class="desc">{{$post->desc}}</div>
  

@@ -22,7 +22,7 @@
 
 <h1>Upload image</h1>
 <input type="file" id="img" name="img">
-
+<a href="/adminview">BACK</a>
 </form>
 </body>
 </html>

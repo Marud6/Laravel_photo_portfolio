@@ -12,7 +12,6 @@ class Homecontroller extends Controller
 {
         public function homepage(){
         $posts=model1::all();
-        // $posts=DB::table('lav')->get();
         return view('homepage',compact('posts' ));    }
     public function adminview(){
 
@@ -26,7 +25,6 @@ class Homecontroller extends Controller
 
       public function album(){
 return view('album');
-
 
       }
     public function destroy($id) {
@@ -80,7 +78,12 @@ return view('album');
 
 
 
+public function update(Request $req){
 
+  return redirect('/');
+
+
+}
 
 
 public function verifi(Request $req){

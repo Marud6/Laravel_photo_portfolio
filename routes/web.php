@@ -23,7 +23,7 @@ Route::get('/admin', function () {
 Route::get('/create', function () {
   return view("createitem");
 });
-Route::post('verifilogin', [Homecontroller::class,"verifi"]);
+Route::post('/verifilogin', [Homecontroller::class,"verifi"]);
 
 Route::post('/critem', [Homecontroller::class,"store"]);
 
@@ -33,5 +33,7 @@ Route::get('album',[Homecontroller::class, 'album']);
 
 Route::get('delete/{id}',[Homecontroller::class, 'destroy']);
 Route::get('edit/{id}',[Homecontroller::class, 'edit']);
+Route::post('update',[Homecontroller::class, 'update']);
+
 Route::get('viewitem/{id}',[Homecontroller::class, 'viewitem']);
 
