@@ -17,6 +17,7 @@
 
 <input type="text" name="name" placeholder="name">
 <input type="text" name="desc" placeholder="desc">
+<input type="number" name="albumid" placeholder="albumid">
 
 <button type="submit">post</button>
 

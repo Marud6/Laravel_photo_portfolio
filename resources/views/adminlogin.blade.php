@@ -26,18 +26,18 @@
     .form {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center align form items horizontally */
+      align-items: center; 
     }
 
     .form-group {
       margin-bottom: 15px;
-      width: 100%; /* Make the form group take full width */
+      width: 100%; 
     }
 
     label {
       font-weight: bold;
-      text-align: center; /* Center align labels */
-      display: block; /* Ensure labels are displayed in block */
+      text-align: center; 
+      display: block; 
     }
 
     input[type="text"],
@@ -46,7 +46,7 @@
       width: 100%;
       border: 1px solid #ccc;
       border-radius: 3px;
-      box-sizing: border-box; /* Ensure padding is included in width */
+      box-sizing: border-box; 
     }
 
     button {

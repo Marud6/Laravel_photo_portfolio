@@ -12,6 +12,8 @@ class Homecontroller extends Controller
 {
         public function homepage(){
         $posts=model1::all();
+
+
         return view('homepage',compact('posts' ));    }
     public function adminview(){
 
@@ -45,7 +47,7 @@ return view('album');
 
     public function edit($id) {
  $posts=model1::where('id', $id)->get();
-         return view('/editview',compact('posts'));
+         return view('/editview',compact('posts','id'));
     }
     public function viewitem($id) {
       $posts=model1::where('id', $id)->get();
@@ -63,7 +65,9 @@ return view('album');
           $dest=public_path("source");
           $model1= new model1;
           $model1->name= $req->name;  
-          $model1->desc= $req->desc;   
+          $model1->desc= $req->desc;  
+          $model1->albumid= $req->albumid;   
+ 
           $model1->save();
           $img->move($dest,($model1->id.'.jpg'));
 
@@ -80,6 +84,28 @@ return view('album');
 
 public function update(Request $req){
 
+ 
+
+  $item = model1::find($req->id);
+  $item->name = $req->name;
+  $item->desc = $req->desc;
+  $item->albumid= $req->albumid;   
+  $item->save();
+  if($req->has("img")){
+  
+    $dest=public_path("source");
+
+    File::delete($dest.'/'.$item->id.'.jpg');
+
+    $img=$req->file('img');
+    $img->move($dest,($item->id.'.jpg'));
+
+  }
+
+
+
+
+  
   return redirect('/');
 
 

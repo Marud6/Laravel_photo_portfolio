@@ -7,12 +7,15 @@
 </head>
 <body>
 
+@foreach($posts as $post)
 
 <form action="/update"  method="post" enctype="multipart/form-data">
-@foreach($posts as $post)
-<h1>{{$post->id}}</h1>
+    @csrf
+<h1 name="id">{{$post->id}}</h1>
 <input type="text" class="form-control" name="name" value="{{$post->name}}" placeholder=" Name">
 <input type="text" class="form-control" name="desc" value="{{$post->desc}}" placeholder=" Name">
+<input type="number" class="form-control" name="albumid" value="{{$post->albumid}}" placeholder=" Name">
+
 <img src="{{ URL('source/'.$post->id.'.jpg') }}" alt="Northern Lights" >
 <h1>Upload image</h1>
 <input type="file" id="img" name="img">
