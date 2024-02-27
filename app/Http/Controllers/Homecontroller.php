@@ -57,8 +57,10 @@ return view('album');
 
        public function store(Request $req)
        {
-
+        
         if($req->has("img")){
+          if($req->name=="" || $req->desc==""|| $req->albumid=="")  return redirect('create')->with('msg','vše musí být vyplněno');
+
           $model1= new model1;
 
           $img=$req->file('img');
@@ -70,13 +72,14 @@ return view('album');
  
           $model1->save();
           $img->move($dest,($model1->id.'.jpg'));
+          return redirect('/adminview');
 
         }
         else{
           return redirect('create')->with('msg','no image found');
         }
        
-        return redirect('/adminview');
+        
 
 }
 
