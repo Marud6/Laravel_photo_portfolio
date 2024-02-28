@@ -15,6 +15,7 @@
 <form action="/critem" method="POST" enctype="multipart/form-data">
 @csrf
 <div class="upload">
+
 <input type="text" name="name" placeholder="name">
 <input type="text" name="desc" placeholder="desc">
 <input type="number" name="albumid" placeholder="albumid">

@@ -33,7 +33,7 @@ Route::get('album',[Homecontroller::class, 'album']);
 
 Route::get('delete/{id}',[Homecontroller::class, 'destroy']);
 Route::get('edit/{id}',[Homecontroller::class, 'edit']);
-Route::post('/update',[Homecontroller::class, 'update']);
+Route::post('/update/{id}',[Homecontroller::class, 'update']);
 
 Route::get('viewitem/{id}',[Homecontroller::class, 'viewitem']);
 

@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\model1;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Termwind\Components\Raw;
 use Illuminate\Support\Facades\File;
+
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class Homecontroller extends Controller
 {
@@ -55,11 +61,26 @@ return view('album');
        }
     
 
-       public function store(Request $req)
+       public function store(Request $req): RedirectResponse
        {
         
-        if($req->has("img")){
-          if($req->name=="" || $req->desc==""|| $req->albumid=="")  return redirect('create')->with('msg','vše musí být vyplněno');
+
+
+        $validated = Validator::make($req->all(), [
+          'name' => 'required|unique:lav|max:255',
+          'desc' => ['required'],
+          'albumid' => ['required'],
+          'img' => [
+            'required',
+            'mimes:jpg,png,jpeg,gif,svg',          
+              ],
+
+
+
+          
+        ]);
+        if($validated->fails())   return redirect('create')->with('msg','FAIL');
+     
 
           $model1= new model1;
 
@@ -74,10 +95,7 @@ return view('album');
           $img->move($dest,($model1->id.'.jpg'));
           return redirect('/adminview');
 
-        }
-        else{
-          return redirect('create')->with('msg','no image found');
-        }
+     
        
         
 
@@ -85,11 +103,25 @@ return view('album');
 
 
 
-public function update(Request $req){
+public function update(Request $req ){
+
+
+  $validated = Validator::make($req->all(), [
+   
+    'id'=> ['required'],
+    'img' => [
+      'mimes:jpg,png,jpeg,gif,svg',          
+        ],
+
+
+    
+  ]);
+     if($validated->fails())   return redirect('create')->with('msg',"problem");
 
  
 
-  $item = model1::find($req->id);
+  $item = model1::find($req->id)
+;
   $item->name = $req->name;
   $item->desc = $req->desc;
   $item->albumid= $req->albumid;   
@@ -109,13 +141,22 @@ public function update(Request $req){
 
 
   
-  return redirect('/');
+  return redirect('/adminview');
 
 
 }
 
 
 public function verifi(Request $req){
+  $validated = Validator::make($req->all(), [
+   
+    'username'=> ['required'],
+    'password'=> ['required'],
+
+
+    
+  ]);
+  if($validated->fails())   return redirect('create')->with('msg',"problem");
 
 return redirect('/adminview');
 
