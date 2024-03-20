@@ -97,6 +97,5 @@
       <a href="/">HOME</a>
     </form>
   </div>
-  <!-- JavaScript code can be added here if needed -->
 </body>
 </html>

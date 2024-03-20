@@ -17,10 +17,21 @@ use Illuminate\Support\Facades\Validator;
 class Homecontroller extends Controller
 {
         public function homepage(){
-        $posts=model1::all();
+          $count=model1::all()->count();
+          $posts=model1::orderBy('date', 'desc')->get();
+          if ($count<7)return redirect('ERROR')->with('msg','FAIL');
+          return view('homepage2',compact('posts' )); 
 
 
-        return view('homepage',compact('posts' ));    }
+        }
+
+
+        public function search(){
+     
+
+
+          return view('search');    }
+
     public function adminview(){
 
 
@@ -31,8 +42,12 @@ class Homecontroller extends Controller
 
 
 
-      public function album(){
-return view('album');
+      public function album($id){
+
+
+        $posts=model1::where('albumid', $id)->get();
+        if( !$posts)return view('album');
+return view('album',compact('posts','id'));
 
       }
     public function destroy($id) {
@@ -48,6 +63,20 @@ return view('album');
 
 
 
+
+    }
+public function albumsview(){
+  $posts=model1::all();
+
+
+  return view('albumsview',compact('posts' ));    
+
+
+}
+    public function albums(){
+
+
+      return view('/albums');
 
     }
 
@@ -104,8 +133,7 @@ return view('album');
 
 
 public function update(Request $req ){
-
-
+  
   $validated = Validator::make($req->all(), [
    
     'id'=> ['required'],
@@ -152,12 +180,15 @@ public function verifi(Request $req){
    
     'username'=> ['required'],
     'password'=> ['required'],
-
-
-    
   ]);
   if($validated->fails())   return redirect('create')->with('msg',"problem");
 
+
+
+
+
+
+  
 return redirect('/adminview');
 
 

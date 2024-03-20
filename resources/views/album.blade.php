@@ -21,21 +21,16 @@
 </style>
 </head>
 <body>
-
 <div class="gallery">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
-    <img src="{{ URL('source/1.jpg') }}" alt="Placeholder Image 1">
+@foreach($posts as $post)
+
+    <img src="{{ URL('source/'.$post->id.'.jpg') }}" alt="Placeholder Image 1">
 
 
+
+@endforeach
 </div>
+
 
 </body>
 </html>
