@@ -19,7 +19,7 @@ class Homecontroller extends Controller
         public function homepage(){
           $count=model1::all()->count();
           $posts=model1::orderBy('date', 'desc')->get();
-          if ($count<7)return redirect('ERROR')->with('msg','FAIL');
+          if ($count<7)return redirect('error')->with('msg','need at least 8 photos to make homepage work');
           return view('homepage2',compact('posts' )); 
 
 
