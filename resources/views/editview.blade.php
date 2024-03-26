@@ -22,7 +22,7 @@
         <label for="comment"><kbd>Abumid:</kbd></label>
 
         <input type="number" class="form-control" name="albumid" value="{{$post->albumid}}">
-        <input hidden type="text" class="form-control" name="id" value="{{$post->id}}">
+        <input hidden type="text" name="id" value="{{$post->id}}">
 
         <h1 class="h1">Upload image</h1>
         <input type="file" id="img" name="img">

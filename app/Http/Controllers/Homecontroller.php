@@ -99,8 +99,6 @@ class Homecontroller extends Controller
             return redirect('create')->with('msg', 'FAIL');
         }
 
-        $model1 = new model1;
-
         $img = $req->file('img');
         $dest = public_path("source");
         $model1 = new model1;
