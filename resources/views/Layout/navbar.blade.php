@@ -14,9 +14,10 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/albumsview">Gallery</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/create">create</a></li>
-                <li><a href="/create_album">create_album</a></li>
+                <li><a href="/create">Create</a></li>
+                <li><a href="/create_album">Create_album</a></li>
                 <li><a href="/adminview">Dashboard</a></li>
+                <li><a href="/statistic">Statistic</a></li>
 
 
             </ul>

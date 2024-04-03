@@ -72,7 +72,7 @@ footer {
     </div><br><br>
 
     <footer class="container-fluid text-center">
-        <p>Footer Text</p>
+        @include("layout/footer")
     </footer>
 
 </body>

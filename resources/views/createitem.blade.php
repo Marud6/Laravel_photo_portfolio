@@ -24,13 +24,36 @@
 
     <form action="/critem" method="POST" enctype="multipart/form-data">
         @csrf
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="desc" placeholder="desc">
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                Chose album
+            </button>
+            <ul class="dropdown-menu">
+
+
+                @foreach($posts as $post)
+                <li><a class="dropdown-item" onclick="test()" name="albumid" value="{{$post->id}}">{{$post->name}}</a>
+                </li>
+
+                @endforeach
+
+            </ul>
+        </div>
+        <script>
+        function test() {
+
+
+        }
+        </script>
+
+
+
+
         <div class="upload">
-
-            <input type="text" name="name" placeholder="name">
-            <input type="text" name="desc" placeholder="desc">
-            <input type="number" name="albumid" placeholder="albumid">
-
-
 
             <h1>Upload image</h1>
             <input type="file" id="img" name="img">

@@ -38,4 +38,12 @@ class Albums_ct extends Controller
 
     }
 
+    public function create_item()
+    {
+        $posts = albums::all();
+
+        return view('createitem', compact('posts'));
+
+    }
+
 }

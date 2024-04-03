@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@section("title","about")
+@section("title","Contact")
 @include("layout/Header")
 
 
@@ -9,7 +9,7 @@
 
 
 
-    something about me
+    some contacts
 
 </body><br><br>
 

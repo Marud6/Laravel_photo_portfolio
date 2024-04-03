@@ -39,17 +39,19 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('about', [Homecontroller::class, 'about']);
 
     Route::get('viewitem/{id}', [Homecontroller::class, 'viewitem']);
+    Route::get('/contact', function () {
+        return view("contacts");
+    });
 
 });
 //TODO:adminview
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/adminview', [Homecontroller::class, 'adminview'])->name('post.getallpost');
-    Route::get('/create', function () {
-        return view("createitem");
-    });
+    Route::get('/create', [Albums_ct::class, "create_item"]);
     Route::get('/create_album', function () {
         return view("create_album");
     });
+
     Route::post('/cralbum', [Albums_ct::class, "create_album"]);
     Route::post('/critem', [Homecontroller::class, "store"]);
     Route::get('delete/{id}', [Homecontroller::class, 'destroy']);
