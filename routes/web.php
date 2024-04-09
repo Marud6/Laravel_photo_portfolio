@@ -15,13 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
  */
 Route::get('/', [Homecontroller::class, "homepage"]);
+
 //TODO:guestview
 
 Route::group(['middleware' => 'guest'], function () {
 
     Route::post('/update', [Homecontroller::class, 'update']);
-    Route::get('/admin', function () {
+    Route::get('login', function () {
         return view("adminlogin");
+    });
+    Route::get('/test', function () {
+        return view("auth/login");
     });
 
     Route::post('/verifilogin', [Homecontroller::class, "verifi"]);
@@ -57,3 +61,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('delete/{id}', [Homecontroller::class, 'destroy']);
     Route::get('edit/{id}', [Homecontroller::class, 'edit']);
 });
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

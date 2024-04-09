@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\model1;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -14,6 +15,7 @@ class Homecontroller extends Controller
 {
     public function homepage()
     {
+
         $count = model1::all()->count();
         $posts = model1::orderBy('date', 'desc')->get();
         if ($count < 7) {
@@ -150,16 +152,26 @@ class Homecontroller extends Controller
 
     public function verifi(Request $req)
     {
+
         $validated = Validator::make($req->all(), [
 
-            'username' => ['required'],
+            'name' => ['required'],
             'password' => ['required'],
         ]);
         if ($validated->fails()) {
             return redirect('create')->with('msg', "problem");
         }
 
-        return redirect('/adminview');
+        $credencials = $req->only('name', 'password');
+        if (Auth::attempt($credencials)) {
+
+            echo ("work");
+            return redirect('/');
+
+        } else {
+            return redirect('/');
+
+        }
 
     }
 

@@ -85,8 +85,8 @@
 
             <h2>Login</h2>
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <label for="name">name</label>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

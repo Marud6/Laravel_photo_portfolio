@@ -36,7 +36,7 @@
 
 
                 @foreach($posts as $post)
-                <li><a class="dropdown-item" onclick="test()" name="albumid" value="{{$post->id}}">{{$post->name}}</a>
+                <li><a class="dropdown-item" name="albumid" value="{{$post->id}}">{{$post->name}}</a>
                 </li>
 
                 @endforeach
@@ -44,10 +44,7 @@
             </ul>
         </div>
         <script>
-        function test() {
 
-
-        }
         </script>
 
 
