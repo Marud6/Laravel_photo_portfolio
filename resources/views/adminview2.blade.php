@@ -19,6 +19,15 @@
         margin-bottom: 20;
 
     }
+
+    img {
+
+        width: 100%;
+        display: block;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        transition: transform 1000ms;
+    }
     </style>
 </head>
 

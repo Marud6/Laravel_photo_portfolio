@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\albums;
 use App\Models\model1;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -23,6 +24,12 @@ class Homecontroller extends Controller
         }
 
         return view('homepage2', compact('posts'));
+
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
 
     }
 
@@ -67,7 +74,7 @@ class Homecontroller extends Controller
     }
     public function albumsview()
     {
-        $posts = model1::all();
+        $posts = albums::all();
 
         return view('albumsview', compact('posts'));
 
@@ -165,11 +172,10 @@ class Homecontroller extends Controller
         $credencials = $req->only('name', 'password');
         if (Auth::attempt($credencials)) {
 
-            echo ("work");
             return redirect('/');
 
         } else {
-            return redirect('/');
+            return redirect('error')->with('msg', 'špatné login udaje :/');
 
         }
 

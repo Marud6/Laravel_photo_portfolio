@@ -14,15 +14,39 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/albumsview">Gallery</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/create">Create</a></li>
-                <li><a href="/create_album">Create_album</a></li>
-                <li><a href="/adminview">Dashboard</a></li>
-                <li><a href="/statistic">Statistic</a></li>
+                <li><a href="/search">search</a></li>
+
+                <?php
+if ($user = auth()->user()) {
+
+    echo ('<li><a href="/create">Create</a></li>
+    <li><a href="/create_album">Create_album</a></li>
+    <li><a href="/adminview">Dashboard</a></li>
+    <li><a href="/statistic">Statistic</a></li>');
+}
+
+?>
+
 
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <?php
+if ($user = auth()->user()) {
+
+    echo (' <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+    ');
+} else {
+    echo (' <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    ');
+
+}
+
+?>
+
+
+
+
             </ul>
         </div>
     </div>

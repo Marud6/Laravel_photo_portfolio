@@ -18,38 +18,38 @@ Route::get('/', [Homecontroller::class, "homepage"]);
 
 //TODO:guestview
 
-Route::group(['middleware' => 'guest'], function () {
-
-    Route::post('/update', [Homecontroller::class, 'update']);
-    Route::get('login', function () {
-        return view("adminlogin");
-    });
-    Route::get('/test', function () {
-        return view("auth/login");
-    });
-
-    Route::post('/verifilogin', [Homecontroller::class, "verifi"]);
-
-    Route::post('/update', [Homecontroller::class, "update"]);
-
-    Route::post('/critem', [Homecontroller::class, "store"]);
-    Route::get('/albumsview', [Homecontroller::class, "albumsview"]);
-
-    Route::get('/error', function () {
-        return view("ERROR");
-    });
-    Route::get('album/{id}', [Homecontroller::class, 'album']);
-    Route::get('hledani', [Homecontroller::class, 'search']);
-    Route::get('about', [Homecontroller::class, 'about']);
-
-    Route::get('viewitem/{id}', [Homecontroller::class, 'viewitem']);
-    Route::get('/contact', function () {
-        return view("contacts");
-    });
-
+Route::post('/update', [Homecontroller::class, 'update']);
+Route::get('login', function () {
+    return view("adminlogin");
 });
+
+Route::post('/verifilogin', [Homecontroller::class, "verifi"]);
+
+Route::post('/update', [Homecontroller::class, "update"]);
+
+Route::post('/critem', [Homecontroller::class, "store"]);
+Route::get('/albumsview', [Homecontroller::class, "albumsview"]);
+
+Route::get('/error', function () {
+    return view("ERROR");
+});
+Route::get('album/{id}', [Homecontroller::class, 'album']);
+Route::get('search', [Homecontroller::class, 'search']);
+Route::get('about', [Homecontroller::class, 'about']);
+
+Route::get('viewitem/{id}', [Homecontroller::class, 'viewitem']);
+Route::get('/contact', function () {
+    return view("contacts");
+});
+
 //TODO:adminview
-Route::group(['middleware' => 'guest'], function () {
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/test', function () {
+        return view("test");
+    });
+    Route::get('/logout', [Homecontroller::class, "logout"]);
+
     Route::get('/adminview', [Homecontroller::class, 'adminview'])->name('post.getallpost');
     Route::get('/create', [Albums_ct::class, "create_item"]);
     Route::get('/create_album', function () {
