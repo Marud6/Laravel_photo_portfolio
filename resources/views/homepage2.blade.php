@@ -13,9 +13,7 @@ footer {
     padding: 25px;
 }
 
-/* body {
-    background: rgba(20, 20, 20, 1);
-} */
+
 
 p {
     color: white;

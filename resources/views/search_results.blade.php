@@ -47,12 +47,9 @@ body {
     transition: all .5s ease;
 }
 
-.portfolio-item {
-    /*width:100%;*/
-}
+
 
 .portfolio-item .item {
-    /*width:303px;*/
     float: left;
     margin-bottom: 10px;
 }
@@ -60,10 +57,6 @@ body {
 
 
 <script>
-// $('.portfolio-item').isotope({
-//  	itemSelector: '.item',
-//  	layoutMode: 'fitRows'
-//  });
 $('.portfolio-menu ul li').click(function() {
     $('.portfolio-menu ul li').removeClass('active');
     $(this).addClass('active');
