@@ -3,13 +3,19 @@
 @section("title","about")
 @include("layout/Header")
 
+<style>
+p {
+    color: white;
+    text-align: center;
+}
+</style>
 
 <body>
     @include("layout/navbar")
 
 
 
-    something about me
+    <p>something about me</p>
 
 </body><br><br>
 

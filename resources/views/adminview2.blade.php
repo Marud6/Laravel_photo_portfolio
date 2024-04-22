@@ -7,7 +7,8 @@
 
     <style>
     body {
-        background-color: darkgray;
+        background: rgba(20, 20, 20, 1);
+
     }
 
     .thumbnail {

@@ -4,6 +4,13 @@
 @section("title","Create")
 @include("layout/Header")
 
+
+<style>
+h1 {
+    color: white;
+}
+</style>
+
 <body>
 
     @include("layout/navbar")
@@ -28,35 +35,29 @@
 
         <input type="text" name="name" placeholder="name">
         <input type="text" name="desc" placeholder="desc">
-        <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                Chose album
-            </button>
-            <ul class="dropdown-menu">
 
 
-                @foreach($posts as $post)
-                <li><a class="dropdown-item" name="albumid" value="{{$post->id}}">{{$post->name}}</a>
-                </li>
+        <select name="albumid" class="albumchs" id="albumid" placeholder="Platform">
+            @foreach($posts as $post)
 
-                @endforeach
-
-            </ul>
-        </div>
-        <script>
-
-        </script>
+            <option value="{{$post->id}}">{{$post->name}}</option>
+            @endforeach
 
 
 
 
-        <div class="upload">
 
-            <h1>Upload image</h1>
-            <input type="file" id="img" name="img">
-            <a class="btn btn-danger" href="/adminview">back</a>
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
+
+
+
+
+            <div class="upload">
+
+                <h1>Upload image</h1>
+                <input type="file" id="img" name="img">
+                <a class="btn btn-danger" href="/adminview">back</a>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
     </form>
 </body>
 

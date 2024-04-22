@@ -38,6 +38,7 @@ Route::get('search', [Homecontroller::class, 'search']);
 Route::get('about', [Homecontroller::class, 'about']);
 
 Route::get('viewitem/{id}', [Homecontroller::class, 'viewitem']);
+Route::post('search_for', [Homecontroller::class, 'search_for']);
 Route::get('/contact', function () {
     return view("contacts");
 });

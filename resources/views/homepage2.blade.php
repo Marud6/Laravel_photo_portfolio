@@ -9,8 +9,28 @@
 }
 
 footer {
-    background-color: #f2f2f2;
+    background: rgba(20, 20, 20, 1);
     padding: 25px;
+}
+
+/* body {
+    background: rgba(20, 20, 20, 1);
+} */
+
+p {
+    color: white;
+}
+
+h1 {
+    color: black !important;
+}
+
+h2 {
+    color: black !important;
+}
+
+h3 {
+    color: white;
 }
 </style>
 
@@ -21,7 +41,7 @@ footer {
     <div class="jumbotron">
         <div class="container text-center">
             <h1>My Portfolio</h1>
-            <p>Just some photos...</p>
+            <h2>Just some photos...</h2>
         </div>
     </div>
 

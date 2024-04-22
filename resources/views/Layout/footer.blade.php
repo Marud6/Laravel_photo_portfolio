@@ -4,6 +4,10 @@
         color: white;
 
     }
+
+    .text-center {
+        color: white;
+    }
     </style>
 
 

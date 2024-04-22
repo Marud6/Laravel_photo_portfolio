@@ -82,8 +82,11 @@ class Homecontroller extends Controller
 
     public function edit($id)
     {
+
+        $posts2 = albums::all();
+
         $posts = model1::where('id', $id)->get();
-        return view('/editview', compact('posts', 'id'));
+        return view('/editview', compact('posts', 'id', 'posts2'));
     }
     public function viewitem($id)
     {
@@ -118,6 +121,27 @@ class Homecontroller extends Controller
         $model1->save();
         $img->move($dest, ($model1->id . '.jpg'));
         return redirect('/adminview');
+
+    }
+
+    public function search_for(Request $req)
+    {
+
+        $validated = Validator::make($req->all(), [
+
+            'search' => ['required'],
+
+        ]);
+        if ($validated->fails()) {
+            return redirect('search')->with('msg', "ERROR try again :(");
+        } else {
+
+            $posts = model1::where('name', 'like', '%' . $req->search . '%')->get();
+            $posts2 = model1::where('desc', 'like', '%' . $req->search . '%')->get();
+            $posts = $posts->merge($posts2);
+            return view('search_results', compact('posts'));
+
+        }
 
     }
 

@@ -19,16 +19,23 @@
 
         <label for="comment"><kbd>description:</kbd></label>
         <textarea class="form-control" rows="5" id="comment" name="desc">{{$post->desc}}</textarea>
-        <label for="comment"><kbd>Abumid:</kbd></label>
 
-        <input type="number" class="form-control" name="albumid" value="{{$post->albumid}}">
-        <input hidden type="text" name="id" value="{{$post->id}}">
+        <select name="albumid" class="albumchs" id="albumid" placeholder="idk">
+            {{$ac=$post->albumid}}
+            <option value="{{$post->albumid}}">{{$posts2[$ac]->name}}</option>
+            @foreach($posts2 as $post2)
 
-        <h1 class="h1">Upload image</h1>
-        <input type="file" id="img" name="img">
-        @endforeach
-        <a class="btn btn-danger" href="/adminview">back</a>
-        <button class="btn btn-primary" type="submit">Submit</button>
+            <option value="{{$post2->id}}">{{$post2->name}}</option>
+            @endforeach
+
+
+            <input hidden type="text" name="id" value="{{$post->id}}">
+
+            <h1 class="h1">Upload image</h1>
+            <input type="file" id="img" name="img">
+            @endforeach
+            <a class="btn btn-danger" href="/adminview">back</a>
+            <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </body>
 
