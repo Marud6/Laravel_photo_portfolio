@@ -25,8 +25,6 @@ Route::get('login', function () {
 
 Route::post('/verifilogin', [Homecontroller::class, "verifi"]);
 
-Route::post('/update', [Homecontroller::class, "update"]);
-
 Route::post('/critem', [Homecontroller::class, "store"]);
 Route::get('/albumsview', [Homecontroller::class, "albumsview"]);
 
@@ -45,6 +43,7 @@ Route::get('/contact', function () {
 
 //TODO:adminview
 Route::group(['middleware' => 'auth'], function () {
+    Route::post('/update', [Homecontroller::class, "update"]);
 
     Route::get('/test', function () {
         return view("test");
@@ -53,6 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/adminview', [Homecontroller::class, 'adminview'])->name('post.getallpost');
     Route::get('/create', [Albums_ct::class, "create_item"]);
+    Route::get('/statistic', [Homecontroller::class, "stats"]);
     Route::get('/create_album', function () {
         return view("create_album");
     });
@@ -61,6 +61,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/critem', [Homecontroller::class, "store"]);
     Route::get('delete/{id}', [Homecontroller::class, 'destroy']);
     Route::get('edit/{id}', [Homecontroller::class, 'edit']);
+    Route::get('album_delete/{id}', [Albums_ct::class, 'destroy_album']);
+    Route::get('album_edit/{id}', [Albums_ct::class, 'edit_album']);
+    Route::post('/update_album', [Albums_ct::class, "update_album"]);
+
 });
 
 // Auth::routes();

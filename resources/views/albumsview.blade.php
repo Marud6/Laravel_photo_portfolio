@@ -68,7 +68,7 @@ figcaption {
     justify-content: center;
     place-items: center;
     text-align: center;
-    padding: 1rem;
+
     color: white;
     font-size: 1.2rem;
     z-index: 1;
@@ -127,7 +127,7 @@ a:is(:hover, :focus) figcaption {
         <li>
             <a href="/album/{{$post->id}}">
                 <figure>
-                    <img src='{{ URL('source/albums/'.$post->id.'.jpg') }}'
+                    <img src='{{ URL('source/albums/'.$post->id.'.'.$post->att) }}'
                         alt='Volcano and lava field against a stormy sky'>
                     <figcaption>{{$post->name}}</figcaption>
                 </figure>

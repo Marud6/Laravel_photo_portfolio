@@ -9,7 +9,7 @@
 
 
     @foreach($posts as $post)
-    <img src="{{ URL('source/'.$post->id.'.jpg') }}" alt="Northern Lights" class="mx-auto d-block">
+    <img src="{{ URL('source/'.$post->id.'.'.$post->att) }}" alt="Northern Lights" class="mx-auto d-block">
 
     <form action="/update" method="post" enctype="multipart/form-data">
         @csrf
@@ -22,7 +22,8 @@
 
         <select name="albumid" class="albumchs" id="albumid" placeholder="idk">
             {{$ac=$post->albumid}}
-            <option value="{{$post->albumid}}">{{$posts2[$ac]->name}}</option>
+
+            <option value="{{$post->albumid}}">{{$ac}}</option>
             @foreach($posts2 as $post2)
 
             <option value="{{$post2->id}}">{{$post2->name}}</option>
@@ -31,8 +32,16 @@
 
             <input hidden type="text" name="id" value="{{$post->id}}">
 
-            <h1 class="h1">Upload image</h1>
-            <input type="file" id="img" name="img">
+            <section>
+                <label for="img" class="custom-file-upload">
+                    Add Image
+                </label>
+                <input type="file" id="img" name="img"><br><br>
+
+
+            </section>
+
+
             @endforeach
             <a class="btn btn-danger" href="/adminview">back</a>
             <button class="btn btn-primary" type="submit">Submit</button>
@@ -41,9 +50,18 @@
 
 
 <style>
-body {
-    background-color: grey;
+input[type="file"] {
+    display: none;
 }
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: white;
+}
+
 
 img {
     height: 500px;

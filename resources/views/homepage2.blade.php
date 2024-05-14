@@ -50,23 +50,23 @@ h3 {
         <div class="row">
             <div class="col-sm-3">
                 <p>{{ $posts[0]->name }}</p>
-                <img src="{{ URL('source/'. $posts[0]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[0]->id .'.'.$posts[0]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
             <div class="col-sm-3">
                 <p>{{ $posts[1]->name }}</p>
-                <img src="{{ URL('source/'.$posts[1]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[1]->id .'.'.$posts[1]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
             <div class="col-sm-3">
                 <p>{{ $posts[2]->name }}</p>
-                <img src="{{ URL('source/'.$posts[2]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[2]->id .'.'.$posts[2]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
             <div class="col-sm-3">
                 <p>{{ $posts[3]->name }}</p>
-                <img src="{{ URL('source/'.$posts[3]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[3]->id .'.'.$posts[3]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
         </div>
     </div><br>
@@ -75,23 +75,23 @@ h3 {
         <div class="row">
             <div class="col-sm-3">
                 <p>{{ $posts[4]->name }}</p>
-                <img src="{{ URL('source/'.$posts[4]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[4]->id .'.'.$posts[4]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
             <div class="col-sm-3">
                 <p>{{ $posts[5]->name }}</p>
-                <img src="{{ URL('source/'.$posts[5]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[5]->id .'.'.$posts[5]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
             <div class="col-sm-3">
                 <p>{{ $posts[6]->name }}</p>
-                <img src="{{ URL('source/'.$posts[6]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[6]->id .'.'.$posts[6]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
             <div class="col-sm-3">
                 <p>{{ $posts[7]->name }}</p>
-                <img src="{{ URL('source/'.$posts[7]->id .'.jpg') }}" class="img-responsive" style="width:100%"
-                    alt="Image">
+                <img src="{{ URL('source/'.$posts[7]->id .'.'.$posts[7]->att) }}" class="img-responsive"
+                    style="width:100%" alt="Image">
             </div>
         </div>
     </div><br><br>

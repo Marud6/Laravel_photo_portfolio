@@ -6,8 +6,34 @@
 
 
 <style>
-h1 {
+.upload {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
     color: white;
+}
+
+div.upload {
+    padding-top: 60px;
+    position: relative;
+    top: 0;
+    right: 0px;
+    font-size: 20px;
+
 }
 </style>
 
@@ -31,56 +57,43 @@ h1 {
 
     <form action="/critem" method="POST" enctype="multipart/form-data">
         @csrf
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="upload">
+            <section>
+                <input type="text" name="name" placeholder="Name of photo">
+            </section>
+            <section>
+                <input type="text" name="desc" placeholder="description of photo">
+            </section>
+            <section>
+                <select name="albumid" class="albumchs" id="albumid" placeholder="Platform">
+                    @foreach($posts as $post)
 
-        <input type="text" name="name" placeholder="name">
-        <input type="text" name="desc" placeholder="desc">
+                    <option value="{{$post->id}}">{{$post->name}}</option>
+                    @endforeach
 
-
-        <select name="albumid" class="albumchs" id="albumid" placeholder="Platform">
-            @foreach($posts as $post)
-
-            <option value="{{$post->id}}">{{$post->name}}</option>
-            @endforeach
-
-
-
-
-
-
-
+                </select>
+            </section>
 
 
-            <div class="upload">
 
-                <h1>Upload image</h1>
-                <input type="file" id="img" name="img">
+
+
+
+
+
+            <label for="file-upload" class="custom-file-upload">
+                Upload images
+            </label>
+            <input id="file-upload" type="file" id="img[]" name="img[]" multiple />
+            <section>
                 <a class="btn btn-danger" href="/adminview">back</a>
                 <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
+            </section>
+        </div>
     </form>
 </body>
 
 
-<style>
-div.upload {
-    padding-top: 60px;
-    position: relative;
-    top: 0;
-    right: 0px;
-    font-size: 20px;
 
-}
-</style>
-
-<script>
-
-
-
-
-
-
-
-</script>
 
 </html>

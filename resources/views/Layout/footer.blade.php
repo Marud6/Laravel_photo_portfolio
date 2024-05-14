@@ -27,13 +27,13 @@
                 role="button"><i class="bi-google"></i></a>
 
 
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!"
-                role="button"><i class="bi-instagram"></i></a>
+            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
+                href="https://www.instagram.com/marek.m.m/" role="button"><i class="bi-instagram"></i></a>
 
 
 
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #808080;" href="#!"
-                role="button"><i class="bi-github"></i></a>
+            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #808080;"
+                href="https://github.com/Marud6" role="button"><i class="bi-github"></i></a>
         </section>
 
     </div>

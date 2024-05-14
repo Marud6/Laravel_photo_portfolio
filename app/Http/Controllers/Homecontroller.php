@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class Homecontroller extends Controller
 {
@@ -43,12 +45,18 @@ class Homecontroller extends Controller
     {
 
         $posts = model1::all();
-        return view('adminview2', compact('posts'));
+        $posts_albums = albums::all();
+
+        return view('adminview3', compact('posts', "posts_albums"));
     }
     public function about()
     {
-
         return view('about');
+    }
+
+    public function stats()
+    {
+        return view('Stats_view');
     }
 
     public function album($id)
@@ -101,25 +109,36 @@ class Homecontroller extends Controller
             'name' => 'required|unique:lav|max:255',
             'desc' => ['required'],
             'albumid' => ['required'],
-            'img' => [
-                'required',
+            'img[]' => [
                 'mimes:jpg,png,jpeg,gif,svg',
             ],
 
         ]);
         if ($validated->fails()) {
-            return redirect('create')->with('msg', 'FAIL');
+            return redirect('create')->with('msg', 'FAIIIIILl');
         }
 
-        $img = $req->file('img');
-        $dest = public_path("source");
-        $model1 = new model1;
-        $model1->name = $req->name;
-        $model1->desc = $req->desc;
-        $model1->albumid = $req->albumid;
+        $images = $req->file("img");
+        if ($images == null) {
+            return redirect('create')->with('msg', 'no image!!');
+        }
+        foreach ($images as $image) {
+            $dest = public_path("source/");
 
-        $model1->save();
-        $img->move($dest, ($model1->id . '.jpg'));
+            $model1 = new model1;
+            $model1->name = $req->name;
+            $model1->desc = $req->desc;
+            $model1->albumid = $req->albumid;
+            $model1->att = $image->getClientOriginalExtension();
+            $manager = new ImageManager(new Driver());
+            $image2 = $manager->read($image);
+            $image2->scale(1500, 1500);
+            $model1->save();
+            $imgname = ($model1->id . '.' . $image->getClientOriginalExtension());
+            $image2->save($dest . $imgname);
+
+        }
+
         return redirect('/adminview');
 
     }

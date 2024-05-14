@@ -8,23 +8,41 @@
 
 
     <style>
+    body {}
+
     img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
         height: 500px;
         width: 500px;
         object-fit: contain;
+    }
+
+    p {
+        text-align: center;
+
+        color: white;
+    }
+
+    h1 {
+        text-align: center;
+
+        color: white;
     }
     </style>
 
 
     @foreach($posts as $post )
     <?php
-$id=$post->id;
+$id = $post->id;
 ?>
 
     <div class="gallery">
 
-        <a target="_blank" href="{{ URL('source/'.$id.'.jpg') }}">
-            <img src="{{ URL('source/'.$id.'.jpg') }}" alt="Northern Lights">
+        <a target="_blank">
+            <img src="{{ URL('source/'.$post->id.'.'.$post->att) }}" alt="Northern Lights">
         </a>
         <h1 class="desc">{{$post->name}}</h1>
 

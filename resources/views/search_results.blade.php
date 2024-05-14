@@ -101,7 +101,7 @@ $(document).ready(function() {
             <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
                 <a href="{{ URL('source/'.$post->id.'.jpg') }}" class="fancylight popup-btn"
                     data-fancybox-group="light">
-                    <img class="img-fluid" src="{{ URL('source/'.$post->id.'.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ URL('source/'.$post->id.'.'.$post->att) }}" alt="">
                 </a>
             </div>
             @endforeach
