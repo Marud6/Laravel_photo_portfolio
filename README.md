@@ -1,11 +1,16 @@
-📸 Laravel Photo Portfolio
+#📸 Laravel Photo Portfolio
 This project was created as part of my school work. It is a photo portfolio with a fully functional backend, allowing users to upload, edit, and delete images from a database. The project also includes image compression and authentication via cookies & tokens for a secure login system.
 
-✨ Features
+#✨ Features
+
 📂 Image Management – Upload, edit, and delete photos easily.
+
 🔐 User Authentication – Secure login system using cookies and tokens.
+
 📉 Image Compression – Optimized image storage to save space and improve performance.
+
 🗄️ Database Integration – All images and metadata are stored in a database.
+
 🚀 Installation
 
 🖼️ Screenshots
